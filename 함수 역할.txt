@@ -1,0 +1,34 @@
+#include <opencv/cv.h> : 영상관련 라이브러리 사용할 때
+#include <opencv/cxcore.h>
+#include <opencv/cvaux.h>
+#include <opencv/highgui.h> : 카메라 화면 캡쳐하고 보여줄 때 & image파일 읽을때
+
+CvMemStorage(크기(int)) : 저장 공간 구조체
+CvHaarClassifierCascade // 얼굴 인식을 하는 haar classifier 변수 생성
+
+CvCapture 카메라로 부터 프레임을 받아오는데 필요한 정보를 가진 구조체
+IplImage 영상을 표현하기 위한 구조체
+cvLoad(이름(char *),저장공간(CvMemStorage *),선택할 개체이름(char *),읽어온 개체의 이름(char **)) : 파일로 부터 필요한 개체를 읽어옵니다.
+cvCreateMemStorage(크기(int)) : 빈 메모리 저장공간을 할당하는 함수 (0을 넣으면 64KB가 사용됨)
+cvCaptureFromCAM(카메라지정(int)) : 카메라로 부터 동영상을 캡쳐하는데 사용하는 함수
+cvNamedWindow(이름(char *),크기조절(int)) : 영상을 출력하기 위한 윈도우를 만드는 함수 
+cvQueryFrame(동영상(CvCapture **)) : 동영상으로 부터 프레임을 읽고 반환하는 함수
+cvWaitKey(시간(int)) : 키보드로부터 키 입력을 기다리는 함수
+cvReleaseCapture(동영상(CvCapture **)) : 동영상에 대해 메모리를 해제하기 위한 함수
+cvDestroyWindow(이름(char *)) : 윈도우 창을 종료하는 함수
+
+CvScalar(val(double)) : 색을 저장하는 구조체로 4개 이하의 숫자를 저장할 수 있는 구조체 
+CvRect(너비(int),높이(int)) : 영상의 크기를 저장하는 구조체
+cvCvtColor(원래영상(CvArr *),목적영상(CvArr *),컬러변환모드(int)) : 컬러영상을 다른 영상으로 변환하는데 사용하는 함수
+cvResize(원래영상(CvArr *),목적영상(CvArr *),보간법(CV_INTER_LINEAR(양선형보간법))) : 영상의 크기를 조절하는 함수 //양선형 보간법 설명
+cvClearMemStorage(저장공간(CvMemStorage *)) : 저장된 메모리를 clear하는 함수
+cvGetTickCount : 함수의 실행 시간 측정을 위한 함수
+CvSeq : 기억장치 내에 저장되는 객체로 구조체들 끼리의 연결 리스트 
+cvHaarDetectObjects //저장 //핵심함수
+cvSize(너비(int),높이(int)) : 이미지의 크기를 결정하는 함수입니다.
+CvPoint(x좌표(int),y좌표(int)) : 영상 내 한점의 좌표를 저장하는 구조체
+cvRectangle(영상(CvArr *),시작모서리(CvPoint),반대편모서리(CvPoint),선의색(CvScalar),두께(int)) : 직사각형을 그리기 위한 함수
+cvShowImage(이름(char *),출력영상(CvArr *)) : 영상을 출력하기 위한 함수
+cvReleaseImage(영상(IplImage **)) : 영상을 메모리로부터 해제하기 위한 함수 
+
+cvGet2D(영상(CvArr *),좌표1(int),좌표2(int)) : 영상의 좌표에 해당하는 색을 저장하는 함수
